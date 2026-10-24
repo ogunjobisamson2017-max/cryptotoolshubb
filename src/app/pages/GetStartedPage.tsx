@@ -301,7 +301,7 @@ export default function GetStartedPage() {
               <Link to="/privacy">Privacy Policy</Link>. By registering you confirm you are an adult (18+).
             </div>
 
-            <button className="btn btn-primary btn-block mt-3" type="submit" disabled={loading || cfgLoading}>
+            <button className="btn btn-primary btn-block mt-3" type="submit" disabled={loading}>
               {loading ? "Registering…" : "Register & Get Referral ID"}
             </button>
 
