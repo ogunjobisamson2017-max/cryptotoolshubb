@@ -41,6 +41,27 @@ app.onError((err, c) => {
   return c.json({ error: "Unexpected server error.", code: "server_error" }, 500);
 });
 
+
+app.get("/robots.txt", (c) => {
+  c.header("Content-Type", "text/plain; charset=utf-8");
+  return c.text(
+    "User-agent: *\nAllow: /\nSitemap: https://cryptotoolshubb.ogunjobisamson2017.workers.dev/sitemap.xml\n"
+  );
+});
+
+app.get("/sitemap.xml", (c) => {
+  c.header("Content-Type", "application/xml; charset=utf-8");
+  return c.body(
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cryptotoolshubb.ogunjobisamson2017.workers.dev/</loc>
+  </url>
+</urlset>`,
+    200
+  );
+});
+
 app.notFound((c) => c.json({ error: "Not found.", code: "not_found" }, 404));
 
 /* ----------------------------------- API routes -------------------------------- */
